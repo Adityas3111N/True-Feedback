@@ -4,11 +4,10 @@
 //hamesa check karenge ki pehele se db connected hai ya nahi aur then connect
 // karenge always. wrna aaplication choke ho jaegi.
 
-import { promises } from "dns";
 import mongoose from "mongoose";
 
-type connectionObject = {  //typescript. check on type of connectionObject
-    isConnected ?: number
+type connectionObject = {  //typescript. check on type of connectionObject 
+    isConnected ?: number 
 }
 
 const connection: connectionObject = {} //connection is connectionObject type. initialised as empty
@@ -33,3 +32,10 @@ async function dbConnect() : Promise<void>{ //function will return a promise and
 }
 
 export default dbConnect
+
+
+//nextjs is serverless framework. Unlike traditional Express servers that run continuously,
+//Next.js runs functions on demand when a request is made.
+
+//this means that you have to check if it is aleady connected to database while making any request 
+//otherwise you will end up making several new connections that will choke the aaplication.
